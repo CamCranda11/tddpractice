@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
  * Tests for class Util.
  *
  * @author  Dr. Jody Paul
+ * @author  Cameron Crandall
  * @author  CS3250 Fall 2025
  * @version 20251105
  */
@@ -65,6 +66,21 @@ public class UtilTest {
     }
 
     /// Add tests for detectRepeats below.
-    /// Start with simple test at distance 2.
+    @Test
+    public void testShouldDetectRepeats() {
+        // stream with repeat
+        IntStream stream = IntStream.of(2, 7, 8, 2, 6);
 
+        // test should fail, since 2 appears twice
+        assertTrue("Failed to detect a repeated number.", Util.detectRepeats(stream, 2));
+    }
+
+    @Test
+    public void testShouldNotDetectRepeats() {
+        // stream with no repeat
+        IntStream stream = IntStream.of(1, 4, 3, 7, 9);
+
+        // test might fail, but shouldn't
+        assertFalse("Incorrectly found a repeat where none exists.", Util.detectRepeats(stream, 2));
+    }
 }
