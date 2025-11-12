@@ -36,7 +36,7 @@ public class Util {
    * @param interval the number of intervening elements between repeats
    * @return the number of repeated values identified
    */
-  public static int detectRepeats(IntStream numberStream, int interval) {
+  public static boolean detectRepeats(IntStream numberStream, int interval) {
 
     AtomicInteger counter = new AtomicInteger(0);
 
@@ -54,6 +54,6 @@ public class Util {
       //
       });
   
-    return counter.get();
+    return false;
   }
 }
